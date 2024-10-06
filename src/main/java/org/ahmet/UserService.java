@@ -9,6 +9,9 @@ public class UserService {
     }
 
     public void addUserPurchase(User user, Product product) {
+        if (product == null) {
+            throw new NullPointerException("Product cannot be null");
+        }
         user.getPurchases().add(product);
     }
 
@@ -17,7 +20,9 @@ public class UserService {
     }
 
     public OrderStatus getOrderStatus(User user, Product product) {
-        // This is a placeholder implementation. In a real application, the order status would be retrieved from a database or another service.
-        return OrderStatus.PENDING;
+        System.out.println("Checking order status for product: " + product);
+        boolean productExists = user.getPurchases().contains(product);
+        System.out.println("Product exists: " + productExists);
+        return productExists ? OrderStatus.PENDING : OrderStatus.NOT_FOUND;
     }
 }
