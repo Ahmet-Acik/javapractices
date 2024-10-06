@@ -20,7 +20,9 @@ public class UserServiceAssertJTest {
 
     @BeforeEach
     public void setUp() {
+        // Create a new UserService instance
         userService = new UserService();
+        // Create a mock UserProcessor
         userProcessor = mock(UserProcessor.class);
     }
 
@@ -29,8 +31,10 @@ public class UserServiceAssertJTest {
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
         List<User> users = List.of(user);
 
+        // Process the users
         userService.processUsers(users, userProcessor);
 
+        // Verify the user is processed
         verify(userProcessor, times(1)).process(user);
     }
 
@@ -39,8 +43,10 @@ public class UserServiceAssertJTest {
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
         Product product = new Product(1, "Laptop", 999.99, "Electronics");
 
+        // Add the product to the user's purchases
         userService.addUserPurchase(user, product);
 
+        // Verify the product is added
         assertThat(user.getPurchases()).hasSize(1).contains(product);
     }
 
@@ -48,8 +54,10 @@ public class UserServiceAssertJTest {
     public void testUpdateUserEmail() {
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
 
+        // Update the user's email
         userService.updateUserEmail(user, "john.new@example.com");
 
+        // Verify the email is updated
         assertThat(user.getEmail()).isEqualTo("john.new@example.com");
     }
 
@@ -64,8 +72,10 @@ public class UserServiceAssertJTest {
         // Verify the product is added
         assertTrue(user.getPurchases().contains(productLaptop), "Product should be in the user's purchases");
 
+        // Get the order status
         OrderStatus status = userService.getOrderStatus(user, productLaptop);
 
+        // Verify the order status
         assertEquals(OrderStatus.PENDING, status);
     }
 }

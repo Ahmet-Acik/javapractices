@@ -20,7 +20,9 @@ public class UserServiceTest {
 
     @BeforeEach
     public void setUp() {
+        // Create a new UserService instance
         userService = new UserService();
+        // Create a mock UserProcessor
         userProcessor = mock(UserProcessor.class);
     }
 
@@ -33,11 +35,12 @@ public class UserServiceTest {
 
     @Test
     public void testProcessUsers() {
+
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
         List<User> users = List.of(user);
-
+        // Process the users
         userService.processUsers(users, userProcessor);
-
+        //  Verify the user is processed
         verify(userProcessor, times(1)).process(user);
     }
 
