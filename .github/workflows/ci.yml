@@ -35,4 +35,4 @@ jobs:
         run: mvn install -Dnet.bytebuddy.experimental=true
 
       - name: Run tests
-        run: mvn test -Dnet.bytebuddy.experimental=true
+        run: mvn clean test -Dnet.bytebuddy.experimental=true
