@@ -30,5 +30,21 @@ public class Main {
         // Get the order status of a product
         OrderStatus status = userService.getOrderStatus(user, product1);
         System.out.println("Order status for product1: " + status);
+
+        // Print the user's purchases
+        System.out.println("User's purchases:");
+        for (Product purchase : user.getPurchases()) {
+            System.out.println(purchase);
+        }
+
+        // Print the user's details
+        System.out.println("User details:");
+        System.out.println("Name: " + user.getName());
+        System.out.println("Age: " + user.getAge());
+        System.out.println("Email: " + user.getEmail());
+        System.out.println("Date of Birth: " + user.getDateOfBirth());
+        System.out.println("Purchases: " + user.getPurchases());
+        System.out.println("User's purchases:");
+
     }
 }
