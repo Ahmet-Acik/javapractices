@@ -100,4 +100,19 @@ public class UserServiceAssertJTest {
         // Verify the order status
         assertEquals(OrderStatus.NOT_FOUND, status);
     }
+
+    @Test
+    public void testRemoveUserPurchase() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        Product product = new Product(1, "Laptop", 999.99, "Electronics");
+
+        // Add the product to the user's purchases
+        userService.addUserPurchase(user, product);
+
+        // Remove the product from the user's purchases
+        userService.removeUserPurchase(user, product);
+
+        // Verify the product is removed
+        assertThat(user.getPurchases()).doesNotContain(product);
+    }
 }
