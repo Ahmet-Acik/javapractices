@@ -78,4 +78,12 @@ public class StreamCollectingTest {
         assertEquals(1, usersByAge.get(20).size());
         assertEquals(1, usersByAge.get(25).size());
     }
+
+    @Test
+    public void testCollectJoining() {
+        List<String> list = Arrays.asList("apple", "banana", "cherry");
+        String result = list.stream().collect(Collectors.joining(", "));
+        assertEquals("apple, banana, cherry", result);
+    }
+
 }
