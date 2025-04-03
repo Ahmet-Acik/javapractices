@@ -112,4 +112,13 @@ public class UserServiceTest {
 
         assertEquals(OrderStatus.NOT_FOUND, status);
     }
+
+    @Test
+    public void testGetOrderStatusWithNullUser() {
+        Product product = new Product(1, "Laptop", 999.99, "Electronics");
+
+        assertThrows(NullPointerException.class, () -> userService.getOrderStatus(null, product));
+    }
+
+
 }
