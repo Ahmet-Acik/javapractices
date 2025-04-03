@@ -12,6 +12,7 @@ public class StreamCreation {
         Stream<String> streamFromList = list.stream();
         streamFromList.forEach(System.out::println);
 
+
         // From an array
         String[] array = {"a", "b", "c"};
         Stream<String> streamFromArray = Arrays.stream(array);
