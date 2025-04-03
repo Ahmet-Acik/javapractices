@@ -51,6 +51,16 @@ public class UserServiceAssertJTest {
     }
 
     @Test
+    public void testAddUserPurchaseWithNullProduct() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+
+        // Verify that adding a null product throws NullPointerException
+        assertThatThrownBy(() -> userService.addUserPurchase(user, null))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessage("Product cannot be null");
+    }
+
+    @Test
     public void testUpdateUserEmail() {
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
 
