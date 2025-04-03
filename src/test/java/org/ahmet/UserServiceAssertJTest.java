@@ -88,4 +88,16 @@ public class UserServiceAssertJTest {
         // Verify the order status
         assertEquals(OrderStatus.PENDING, status);
     }
+
+    @Test
+    public void testGetOrderStatusForNonExistentProduct() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        Product productLaptop = new Product(1, "Laptop", 999.99, "Electronics");
+
+        // Get the order status for a product not in the user's purchases
+        OrderStatus status = userService.getOrderStatus(user, productLaptop);
+
+        // Verify the order status
+        assertEquals(OrderStatus.NOT_FOUND, status);
+    }
 }
