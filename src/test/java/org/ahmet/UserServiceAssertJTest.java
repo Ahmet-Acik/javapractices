@@ -115,4 +115,15 @@ public class UserServiceAssertJTest {
         // Verify the product is removed
         assertThat(user.getPurchases()).doesNotContain(product);
     }
+
+    @Test
+    public void testRemoveUserPurchaseWithNullProduct() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+
+        // Verify that removing a null product throws NullPointerException
+        assertThatThrownBy(() -> userService.removeUserPurchase(user, null))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessage("Product cannot be null");
+
+    }
 }
