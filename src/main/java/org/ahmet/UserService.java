@@ -8,12 +8,14 @@ package org.ahmet;
                 users.forEach(processor::process);
             }
 
-            public void addUserPurchase(User user, Product product) {
-                if (product == null) {
-                    throw new NullPointerException("Product cannot be null");
-                }
-                user.getPurchases().add(product);
-            }
+       public void addUserPurchase(User user, Product product) {
+                        if (product == null) {
+                            throw new NullPointerException("Product cannot be null");
+                        }
+                        if (!user.getPurchases().contains(product)) {
+                            user.getPurchases().add(product);
+                        }
+                    }
 
             public void updateUserEmail(User user, String newEmail) {
                 user.setEmail(newEmail);
