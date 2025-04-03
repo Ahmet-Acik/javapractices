@@ -27,4 +27,11 @@ package org.ahmet;
                 System.out.println("Product exists: " + productExists);
                 return productExists ? OrderStatus.PENDING : OrderStatus.NOT_FOUND;
             }
+
+            public void removeUserPurchase(User user, Product product) {
+                if (product == null) {
+                    throw new NullPointerException("Product cannot be null");
+                }
+                user.getPurchases().remove(product);
+            }
         }
