@@ -1,10 +1,8 @@
 package org.ahmet;
 
-import org.ahmet.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,12 +33,11 @@ public class UserServiceTest {
 
     @Test
     public void testProcessUsers() {
-
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
         List<User> users = List.of(user);
         // Process the users
         userService.processUsers(users, userProcessor);
-        //  Verify the user is processed
+        // Verify the user is processed
         verify(userProcessor, times(1)).process(user);
     }
 
@@ -120,5 +117,23 @@ public class UserServiceTest {
         assertThrows(NullPointerException.class, () -> userService.getOrderStatus(null, product));
     }
 
+    @Test
+    public void testAddUserPurchaseWithExistingProduct() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        Product product = new Product(1, "Laptop", 999.99, "Electronics");
 
+        userService.addUserPurchase(user, product);
+        userService.addUserPurchase(user, product);
+
+        assertEquals(1, user.getPurchases().size(), "Product should not be added twice");
+    }
+
+    @Test
+    public void testUpdateUserEmailWithNullEmail() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+
+        assertThrows(NullPointerException.class, () -> userService.updateUserEmail(user, null));
+    }
 }
+
+
