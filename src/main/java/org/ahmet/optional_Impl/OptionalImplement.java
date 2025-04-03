@@ -1,4 +1,4 @@
-package org.ahmet.streams.optional_Impl;
+package org.ahmet.optional_Impl;
 
 import java.util.Optional;
 
@@ -40,6 +40,19 @@ public class OptionalImplement {
         Optional<String> optionalUpperCase = optionalString
                 .flatMap(val -> Optional.of(val.toUpperCase()));
         optionalUpperCase.ifPresent(System.out::println); // Output: HELLO
+
+        // Example of using Optional with filter
+        Optional<String> filteredValue = Optional.of("hello")
+                .filter(val -> val.startsWith("h"));
+        filteredValue.ifPresent(System.out::println); // Output: hello
+
+        // Example of using Optional with isPresent
+        boolean isPresent = Optional.ofNullable(value).isPresent();
+        System.out.println("Is value present: " + isPresent); // Output: Is value present: false
+
+        // Example of using Optional with orElse
+        String defaultValue = Optional.ofNullable(value).orElse("Default Value");
+        System.out.println("Default value: " + defaultValue); // Output: Default Value
     }
 
     private static String getDefaultValue() {
