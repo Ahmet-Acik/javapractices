@@ -39,6 +39,17 @@ public class UserServiceAssertJTest {
     }
 
     @Test
+    public void testProcessUsersWithEmptyList() {
+        List<User> users = new ArrayList<>();
+
+        // Process the users
+        userService.processUsers(users, userProcessor);
+
+        // Verify no users are processed
+        verify(userProcessor, never()).process(any(User.class));
+    }
+
+    @Test
     public void testAddUserPurchase() {
         User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
         Product product = new Product(1, "Laptop", 999.99, "Electronics");
@@ -126,4 +137,6 @@ public class UserServiceAssertJTest {
                 .hasMessage("Product cannot be null");
 
     }
+
+
 }
