@@ -64,4 +64,18 @@ public class StreamCollectingTest {
         Map<String, Integer> userAgeMap = users.stream().collect(Collectors.toMap(User::getName, User::getAge));
         assertEquals(Map.of("Alice", 30, "Bob", 20, "Charlie", 25), userAgeMap);
     }
+
+    @Test
+    public void testCollectGroupingBy() {
+        List<User> users = Arrays.asList(
+                new User("Alice", 30, "alice@example.com", LocalDate.of(1993, 1, 1), null),
+                new User("Bob", 20, "bob@example.com", LocalDate.of(2003, 1, 1), null),
+                new User("Charlie", 25, "charlie@example.com", LocalDate.of(1998, 1, 1), null),
+                new User("David", 30, "david@example.com", LocalDate.of(1993, 1, 1), null)
+        );
+        Map<Integer, List<User>> usersByAge = users.stream().collect(Collectors.groupingBy(User::getAge));
+        assertEquals(2, usersByAge.get(30).size());
+        assertEquals(1, usersByAge.get(20).size());
+        assertEquals(1, usersByAge.get(25).size());
+    }
 }
