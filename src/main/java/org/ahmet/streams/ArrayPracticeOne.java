@@ -3,7 +3,7 @@ package org.ahmet.streams;// Java Practice Sheet - Array & Number Problems Using
 import java.util.*;
 import java.util.stream.*;
 
-public class ArrayPractice {
+public class ArrayPracticeOne {
 
     // 1. Find Largest and Smallest
     public static void largestAndSmallest(int[] arr) {
