@@ -144,8 +144,22 @@ public class UserServiceTest {
         List<Product> purchases = userService.getUserPurchases(user);
 
         assertEquals(1, purchases.size());
-        assertEquals(product, purchases.get(0));
+        assertEquals(product, purchases.getFirst());
     }
+
+    @Test
+    public void testGetTotalAmountSpent() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        Product product1 = new Product(1, "Laptop", 999.99, "Electronics");
+        Product product2 = new Product(2, "Smartphone", 499.99, "Electronics");
+        user.getPurchases().add(product1);
+        user.getPurchases().add(product2);
+
+        double totalAmountSpent = userService.getTotalAmountSpent(user);
+
+        assertEquals(1499.98, totalAmountSpent);
+    }
+
 }
 
 
