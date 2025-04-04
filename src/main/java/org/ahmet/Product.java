@@ -20,4 +20,8 @@ public record Product(int id, String name, double price, String category) {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public double getPrice() {
+        return price;
+    }
 }
