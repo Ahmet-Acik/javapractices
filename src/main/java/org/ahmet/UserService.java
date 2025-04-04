@@ -34,4 +34,8 @@ package org.ahmet;
                 }
                 user.getPurchases().remove(product);
             }
+
+            public List<Product> getUserPurchases(User user) {
+                return user.getPurchases();
+            }
         }
