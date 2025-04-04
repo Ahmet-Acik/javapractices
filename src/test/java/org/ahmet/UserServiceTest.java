@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -160,6 +161,17 @@ public class UserServiceTest {
         assertEquals(1499.98, totalAmountSpent);
     }
 
+    @Test
+    public void testFindUserByEmail() {
+        User user1 = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        User user2 = new User("Jane Doe", 25, "jane.doe@example.com", LocalDate.of(1998, 2, 2), new ArrayList<>());
+        List<User> users = List.of(user1, user2);
+
+        Optional<User> foundUser = userService.findUserByEmail(users, "jane.doe@example.com");
+
+        assertTrue(foundUser.isPresent());
+        assertEquals(user2, foundUser.get());
+    }
 }
 
 
