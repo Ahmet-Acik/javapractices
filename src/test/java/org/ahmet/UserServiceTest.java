@@ -134,6 +134,18 @@ public class UserServiceTest {
 
         assertThrows(NullPointerException.class, () -> userService.updateUserEmail(user, null));
     }
+
+    @Test
+    public void testGetUserPurchases() {
+        User user = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        Product product = new Product(1, "Laptop", 999.99, "Electronics");
+        user.getPurchases().add(product);
+
+        List<Product> purchases = userService.getUserPurchases(user);
+
+        assertEquals(1, purchases.size());
+        assertEquals(product, purchases.get(0));
+    }
 }
 
 
