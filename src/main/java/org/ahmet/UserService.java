@@ -38,4 +38,10 @@ package org.ahmet;
             public List<Product> getUserPurchases(User user) {
                 return user.getPurchases();
             }
+
+            public double getTotalAmountSpent(User user) {
+                return user.getPurchases().stream()
+                        .mapToDouble(Product::getPrice)
+                        .sum();
+            }
         }
