@@ -172,6 +172,17 @@ public class UserServiceTest {
         assertTrue(foundUser.isPresent());
         assertEquals(user2, foundUser.get());
     }
+
+    @Test
+    public void testFindUserByEmailNotFound() {
+        User user1 = new User("John Doe", 30, "john.doe@example.com", LocalDate.of(1993, 1, 1), new ArrayList<>());
+        User user2 = new User("Jane Doe", 25, "jane.doe@example.com", LocalDate.of(1998, 2, 2), new ArrayList<>());
+        List<User> users = List.of(user1, user2);
+
+        Optional<User> foundUser = userService.findUserByEmail(users, "nonexistent@example.com");
+
+        assertFalse(foundUser.isPresent());
+    }
 }
 
 
