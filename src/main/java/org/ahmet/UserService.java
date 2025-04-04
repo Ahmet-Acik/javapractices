@@ -42,7 +42,7 @@ public class UserService {
 
     public double getTotalAmountSpent(User user) {
         return user.getPurchases().stream()
-                .mapToDouble(Product::getPrice)
+                .mapToDouble(Product::price)
                 .sum();
     }
 
