@@ -123,4 +123,11 @@ public class FunctionalInterfacesTest {
         assertEquals(Arrays.asList("A", "B", "C"), result);
     }
 
+    @Test
+    public void testStreamFromIntArray() {
+        int[] array = {1, 2, 3,4, 5};
+        List<Integer> result = Arrays.stream(array).boxed().collect(Collectors.toList());
+        assertEquals(Arrays.asList(1, 2, 3, 4, 5), result);
+    }
+
 }
