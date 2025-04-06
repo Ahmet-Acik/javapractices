@@ -76,7 +76,7 @@ public class ArrayPracticeOne {
                 Arrays.stream(arr).filter(n -> n != 0),
                 Arrays.stream(arr).filter(n -> n == 0))
                 .toArray();
-        System.out.println("After moving zeros: " + Arrays.toString(result));
+        System.out.println("After moving zeros to end: " + Arrays.toString(result));
     }
 
     // 10. Check Pair With Sum
