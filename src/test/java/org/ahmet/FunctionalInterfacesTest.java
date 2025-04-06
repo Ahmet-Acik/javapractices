@@ -125,9 +125,32 @@ public class FunctionalInterfacesTest {
 
     @Test
     public void testStreamFromIntArray() {
-        int[] array = {1, 2, 3,4, 5};
+        int[] array = {1, 2, 3, 4, 5};
         List<Integer> result = Arrays.stream(array).boxed().collect(Collectors.toList());
         assertEquals(Arrays.asList(1, 2, 3, 4, 5), result);
+    }
+
+    @Test
+    public void testStreamFromDoubleArray() {
+        double[] array = {1.0, 2.0, 3.0, 4.0, 5.0};
+        List<Double> result = Arrays.stream(array).boxed().collect(Collectors.toList());
+        assertEquals(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0), result);
+    }
+
+    @Test
+    public void testStreamFromLongArray() {
+        long[] array = {1L, 2L, 3L, 4L, 5L};
+        List<Long> result = Arrays.stream(array).boxed().collect(Collectors.toList());
+        assertEquals(Arrays.asList(1L, 2L, 3L, 4L, 5L), result);
+    }
+
+    @Test
+    public void testStreamFromShortArray() {
+        short[] array = {1, 2, 3, 4, 5};
+        List<Short> result = IntStream.range(0, array.length)
+                .mapToObj(i -> array[i])
+                .collect(Collectors.toList());
+        assertEquals(Arrays.asList((short) 1, (short) 2, (short) 3, (short) 4, (short) 5), result);
     }
 
 }
