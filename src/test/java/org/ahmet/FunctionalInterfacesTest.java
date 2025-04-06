@@ -116,4 +116,11 @@ public class FunctionalInterfacesTest {
         assertEquals(Arrays.asList(0, 1, 2, 3, 4), result);
     }
 
+    @Test
+    public void testStreamFromList() {
+        List<String> list = Arrays.asList("a", "b", "c");
+        List<String> result = list.stream().map(String::toUpperCase).collect(Collectors.toList());
+        assertEquals(Arrays.asList("A", "B", "C"), result);
+    }
+
 }
