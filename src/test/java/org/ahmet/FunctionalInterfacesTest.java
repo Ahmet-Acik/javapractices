@@ -88,4 +88,12 @@ public class FunctionalInterfacesTest {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> "Hello from CompletableFuture!");
         assertEquals("Hello from CompletableFuture!", future.join());
     }
+
+    @Test
+    public void testStreamCreation() {
+        List<String> list = Arrays.asList("a", "b", "c");
+        List<String> result = list.stream().map(String::toUpperCase).collect(Collectors.toList());
+        assertEquals(Arrays.asList("A", "B", "C"), result);
+    }
+
 }
