@@ -104,4 +104,12 @@ public class OptionalImplementTest {
         assertEquals("Hello", optionalValue.get());
     }
 
+    @Test
+    public void testOptionalOfWithNull() {
+        String value = null;
+        assertThrows(NullPointerException.class, () -> {
+            Optional.of(value);
+        });
+    }
+
 }
