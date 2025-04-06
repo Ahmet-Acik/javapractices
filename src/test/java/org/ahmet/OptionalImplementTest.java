@@ -95,4 +95,13 @@ public class OptionalImplementTest {
             Optional.ofNullable(value).orElseThrow(() -> new OptionalImplement.CustomException("Custom exception: Value cannot be null"));
         });
     }
+
+    @Test
+    public void testOptionalOf() {
+        String value = "Hello";
+        Optional<String> optionalValue = Optional.of(value);
+        assertTrue(optionalValue.isPresent());
+        assertEquals("Hello", optionalValue.get());
+    }
+
 }
