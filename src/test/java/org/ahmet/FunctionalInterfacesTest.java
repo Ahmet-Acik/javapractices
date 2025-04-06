@@ -153,4 +153,13 @@ public class FunctionalInterfacesTest {
         assertEquals(Arrays.asList((short) 1, (short) 2, (short) 3, (short) 4, (short) 5), result);
     }
 
+    @Test
+    public void testStreamFromByteArray() {
+        byte[] array = {1, 2, 3, 4, 5};
+        List<Byte> result = IntStream.range(0, array.length)
+                .mapToObj(i -> array[i])
+                .collect(Collectors.toList());
+        assertEquals(Arrays.asList((byte) 1, (byte) 2, (byte) 3, (byte) 4, (byte) 5), result);
+    }
+
 }
