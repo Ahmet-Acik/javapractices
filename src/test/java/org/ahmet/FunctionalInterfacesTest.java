@@ -110,4 +110,10 @@ public class FunctionalInterfacesTest {
         assertEquals(Arrays.asList("A", "B", "C"), result);
     }
 
+    @Test
+    public void testInfiniteStream() {
+        List<Integer> result = Stream.iterate(0, n -> n + 1).limit(5).collect(Collectors.toList());
+        assertEquals(Arrays.asList(0, 1, 2, 3, 4), result);
+    }
+
 }
