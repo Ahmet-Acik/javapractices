@@ -158,5 +158,20 @@ public class OptionalImplementTest {
     }
 
 
+    @Test
+    public void testOptionalToStringWithEmpty() {
+        String value = null;
+        Optional<String> optionalValue = Optional.ofNullable(value);
+        assertEquals("Optional.empty", optionalValue.toString());
+    }
+
+    @Test
+    public void testOptionalEquals() {
+        String value = "Hello";
+        Optional<String> optionalValue1 = Optional.ofNullable(value);
+        Optional<String> optionalValue2 = Optional.ofNullable(value);
+        assertTrue(optionalValue1.equals(optionalValue2));
+    }
+
 
 }
