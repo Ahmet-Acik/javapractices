@@ -126,4 +126,21 @@ public class OptionalImplementTest {
         assertEquals("Hello", result.toString());
     }
 
+    @Test
+    public void testOptionalIfPresentOrElseWithNull() {
+        String value = null;
+        StringBuilder result = new StringBuilder();
+        Optional.ofNullable(value).ifPresentOrElse(result::append, () -> result.append("Default Value"));
+        assertEquals("Default Value", result.toString());
+    }
+
+    @Test
+    public void testOptionalStream() {
+        String value = "Hello";
+        Optional<String> optionalValue = Optional.ofNullable(value);
+        assertEquals(1, optionalValue.stream().count());
+        assertEquals("Hello", optionalValue.stream().findFirst().orElse("Default Value"));
+    }
+
+
 }
