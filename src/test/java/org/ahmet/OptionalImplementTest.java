@@ -182,5 +182,19 @@ public class OptionalImplementTest {
         assertFalse(optionalValue1.equals(optionalValue2));
     }
 
+    @Test
+    public void testOptionalHashCode() {
+        String value = "Hello";
+        Optional<String> optionalValue = Optional.ofNullable(value);
+        assertEquals(value.hashCode(), optionalValue.hashCode());
+    }
+
+    @Test
+    public void testOptionalHashCodeWithEmpty() {
+        String value = null;
+        Optional<String> optionalValue = Optional.ofNullable(value);
+        assertEquals(0, optionalValue.hashCode());
+    }
+
 
 }
