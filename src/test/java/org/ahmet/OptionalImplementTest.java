@@ -182,5 +182,13 @@ public class OptionalImplementTest {
         assertNotEquals(optionalValue1, optionalValue2);
     }
 
+    @Test
+    public void testOptionalHashCode() {
+        String value = "Hello";
+        Optional<String> optionalValue = Optional.of(value);
+        assertEquals(value.hashCode(), optionalValue.hashCode());
+    }
+
+
 
 }
