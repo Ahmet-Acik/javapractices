@@ -89,6 +89,36 @@ public class ArrayPracticeOne {
         return false;
     }
 
+    // 11. Check if Array Contains a Number
+    public static boolean containsNumber(int[] arr, int number) {
+        return Arrays.stream(arr).anyMatch(n -> n == number);
+    }
+
+    // 12. Check if Array Contains a String
+    public static boolean containsString(String[] arr, String str) {
+        return Arrays.stream(arr).anyMatch(s -> s.equals(str));
+    }
+
+    //// 13. Check if Array Contains a Character
+    public static boolean containsCharacter(char[] arr, char ch) {
+        return IntStream.range(0, arr.length).anyMatch(i -> arr[i] == ch);
+    }
+
+    // 14. Check if Array Contains a Boolean
+    public static boolean containsBoolean(boolean[] arr, boolean value) {
+        for (boolean b : arr) {
+            if (b == value) return true;
+        }
+        return false;
+    }
+
+    // 15. Check if Array Contains a Double
+    public static boolean containsDouble(double[] arr, double value) {
+        return Arrays.stream(arr).anyMatch(d -> d == value);
+    }
+
+
+
     public static void main(String[] args) {
         int[] example = {1, 3, 2, 3, 4, 0, 0, 5};
 
