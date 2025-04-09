@@ -177,9 +177,9 @@ public class OptionalImplementTest {
     public void testOptionalEqualsWithDifferentValues() {
         String value1 = "Hello";
         String value2 = "World";
-        Optional<String> optionalValue1 = Optional.ofNullable(value1);
-        Optional<String> optionalValue2 = Optional.ofNullable(value2);
-        assertFalse(optionalValue1.equals(optionalValue2));
+        Optional<String> optionalValue1 = Optional.of(value1);
+        Optional<String> optionalValue2 = Optional.of(value2);
+        assertNotEquals(optionalValue1, optionalValue2);
     }
 
 
