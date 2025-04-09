@@ -134,6 +134,8 @@ public class ArrayPracticeOne {
         System.out.println("Has pair with sum 6: " + hasPairWithSum(example, 6));
         System.out.println("Contains number 3: " + containsNumber(example, 3));
         System.out.println("Contains string 'hello': " + containsString(new String[]{"hello", "world"}, "hello"));
+        System.out.println("Contains character 'a': " + containsCharacter(new char[]{'a', 'b', 'c'}, 'a'));
+
 
     }
 }
