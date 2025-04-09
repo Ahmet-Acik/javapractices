@@ -86,4 +86,13 @@ public class StreamCollectingTest {
         assertEquals("apple, banana, cherry", result);
     }
 
+    @Test
+
+    public void testCollectCounting() {
+        List<String> list = Arrays.asList("apple", "banana", "cherry");
+        long count = list.stream().collect(Collectors.counting());
+        assertEquals(3, count);
+    }
+
+
 }
