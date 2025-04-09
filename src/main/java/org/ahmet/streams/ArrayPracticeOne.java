@@ -132,5 +132,7 @@ public class ArrayPracticeOne {
         mostFrequent(example);
         moveZerosToEnd(example);
         System.out.println("Has pair with sum 6: " + hasPairWithSum(example, 6));
+        System.out.println("Contains number 3: " + containsNumber(example, 3));
+
     }
 }
