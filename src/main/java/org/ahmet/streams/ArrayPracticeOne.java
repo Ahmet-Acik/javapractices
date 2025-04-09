@@ -135,6 +135,9 @@ public class ArrayPracticeOne {
         System.out.println("Contains number 3: " + containsNumber(example, 3));
         System.out.println("Contains string 'hello': " + containsString(new String[]{"hello", "world"}, "hello"));
         System.out.println("Contains character 'a': " + containsCharacter(new char[]{'a', 'b', 'c'}, 'a'));
+        System.out.println("Contains boolean true: " + containsBoolean(new boolean[]{true, false}, true));
+        System.out.println("Contains double 3.14: " + containsDouble(new double[]{1.0, 2.0, 3.14}, 3.14));
+
 
 
     }
