@@ -23,6 +23,11 @@ public class ParallelStreams {
 
         // Example with User class and custom parallel stream
 
+        users.parallelStream()
+                .filter(user -> user.getAge() > 21)
+                .forEach(user -> System.out.println(user.getName())); // Output: Alice, Charlie
+
+
 
     }
 }
