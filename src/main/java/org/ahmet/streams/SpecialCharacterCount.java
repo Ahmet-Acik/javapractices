@@ -43,4 +43,17 @@ public class SpecialCharacterCount {
         System.out.println("Number of special characters: " + countSpecialCharacters(str));
         System.out.println("Number of special characters (stream): " + countSpecialCharactersStream(str));
     }
+    /**
+     * Counts the number of special characters in a given string using regex.
+     *
+     * @param str the input string
+     * @return the count of special characters
+     * @throws IllegalArgumentException if the input string is null
+     */
+    public static int countSpecialCharactersRegex(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException("String cannot be null");
+        }
+        return str.replaceAll("[a-zA-Z0-9]", "").length();
+    }
 }
