@@ -41,5 +41,13 @@ public class StreamCollecting {
 //                .collect(Collectors.toList());
         System.out.println(collectedUsersToSet);
 
+        // Example with User class and custom collecting to a set with filtering
+        Set<String> collectedUsersToSetWithFilter = users.stream()
+                .filter(user -> user.getAge() > 21)
+                .map(User::getEmail)
+                .collect(Collectors.toSet());
+
+
+
     }
 }
