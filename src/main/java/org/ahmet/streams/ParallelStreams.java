@@ -28,6 +28,12 @@ public class ParallelStreams {
                 .forEach(user -> System.out.println(user.getName())); // Output: Alice, Charlie
 
 
+        // Example with User class and custom parallel stream with map
+        users.parallelStream()
+                .map(user -> user.getName().toUpperCase())
+                .forEach(System.out::println); // Output: ALICE, BOB, CHARLIE
+
+
 
     }
 }
