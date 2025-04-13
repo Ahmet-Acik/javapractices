@@ -33,6 +33,12 @@ public class ParallelStreams {
                 .map(user -> user.getName().toUpperCase())
                 .forEach(System.out::println); // Output: ALICE, BOB, CHARLIE
 
+        // Example with User class and custom parallel stream with filter and map
+
+        users.parallelStream()
+                .filter(user -> user.getAge() > 21)
+                .map(user -> user.getName().toLowerCase())
+                .forEach(System.out::println); // Output: alice, charlie
 
 
     }
